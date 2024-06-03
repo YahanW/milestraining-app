@@ -21,7 +21,7 @@ const TrickList = () => {
       <h2>Tricks Practiced</h2>
       <ul className='Down'>
         {practicedTricks.map(trick => (
-          <li key={trick}>{trick}</li>
+          <li key={trick}>{trick}</li> 
         ))}
       </ul>
     </div>
