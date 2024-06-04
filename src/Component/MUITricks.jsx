@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -77,7 +76,7 @@ export default function MUITricks() {
         { id: 10, name: 'Middle', description: "Miles sits between trainer's legs", imageAddress: "https://media.istockphoto.com/id/1265211191/vector/dog-black-silhouette-isolated-on-white-background-sitting-pet-simple-illustration-for-web.jpg?s=612x612&w=0&k=20&c=cD6FU8Dyr2RDMmccVdWa0sQmwp2hRk70sOTDS9RfZXg=" },
         { id: 11, name: '靠', description: "Miles sits next to trainer's left foot", imageAddress: "https://media.istockphoto.com/id/1265211191/vector/dog-black-silhouette-isolated-on-white-background-sitting-pet-simple-illustration-for-web.jpg?s=612x612&w=0&k=20&c=cD6FU8Dyr2RDMmccVdWa0sQmwp2hRk70sOTDS9RfZXg=" },
     ];
-    
+
     const element = <MUITrickItem />;
     const trickItems = generate(element, data);
 
