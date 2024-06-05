@@ -11,22 +11,23 @@ import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import Icon from '@mui/material/Icon';
 
 
-const MUITrickItem = ({ id, name, description, imageAddress }) => {
+const MUITrickItem = ({ id, name, description, imageAddress, onPracticeTrick}) => {
 
     const [checked, setChecked] = React.useState(true);
 
     const handleChange = () => {
         setChecked((prev) => !prev);
+        onPracticeTrick();
     };
 
 
     return (
-        // <Slide direction="right" in={checked} mountOnEnter unmountOnExits>
+        //<Slide direction="right" in={checked} mountOnEnter unmountOnExits >
         <Card raised='false' sx={{ opacity: !checked ? 0.3 : 1, display: 'flex', justifyContent: 'space-between', marginTop: '2%' }} >
 
             <CardMedia
                 component="img"
-                sx={{ width: 151 }}
+                sx={{ width: 151, height:151 }}
                 image={imageAddress}
             />
             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -41,12 +42,12 @@ const MUITrickItem = ({ id, name, description, imageAddress }) => {
 
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <IconButton aria-label="Done" color='success' onClick={handleChange}>
+                <IconButton aria-label="Done" color='success' onClick={onPracticeTrick} >
                     <CheckCircleRoundedIcon sx={{ display: !checked ? 'none' : 'block' }} fontSize='large' />
                 </IconButton>
             </Box>
         </Card >
-        // </Slide>
+     //</Slide>
     )
 }
 
