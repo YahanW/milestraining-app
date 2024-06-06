@@ -22,6 +22,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Icon from '@mui/material/Icon';
 import Slide from '@mui/material/Slide';
 import MUITrickItem from './MUITrickItem';
+import Paper from '@mui/material/Paper';
+import Grow from '@mui/material/Grow';
+import Fade from '@mui/material/Fade';
+
+
 
 function generate(element, data) {
     return data.map((item, index) =>
@@ -32,35 +37,13 @@ function generate(element, data) {
     );
 }
 
-// const TrickItem = ({ name, description, imageAddress }) => (
-
-//     // <Slide direction="left" >
-//     <Card sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '2%' }} >
-
-//         <CardMedia
-//             component="img"
-//             sx={{ width: 151 }}
-//             image={imageAddress}
-//         />
-//         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-//             <CardContent >
-//                 <Typography component="div" variant="h5">
-//                     {name}
-//                 </Typography>
-//                 <Typography variant="subtitle1" color="text.secondary" component="div">
-//                     {description}
-//                 </Typography>
-//             </CardContent>
-
-//         </Box>
-//         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-//             <IconButton aria-label="Done" color='success' onClick={}>
-//                 <CheckCircleRoundedIcon fontSize='large' />
-//             </IconButton>
-//         </Box>
-//     </Card >
-//     // </Slide>
-// );
+const icon = (
+    <CardMedia
+                component="img"
+                sx={{ width: 100, height:100 }}
+                image={"https://static.vecteezy.com/system/resources/previews/018/719/221/original/love-animals-concept-with-heart-and-paw-on-transparent-background-free-png.png"}
+            />
+);
 
 export default function MUITricks() {
 
@@ -81,18 +64,24 @@ export default function MUITricks() {
     const [practicedTricks, setPracticedTricks] = useState([]);
     const element = <MUITrickItem />;
     const trickItems = generate(element, tricksToPractice);
+    const [allDone, setAllDone] = React.useState(false);
 
+    const [numTricks, setNumTricks] = useState(0);
     const handlePracticeTrick = (trick) => {
         setTricksToPractice(tricksToPractice.filter(t => t.id !== trick.id));
         setPracticedTricks([...practicedTricks, trick]);
+        setNumTricks(numTricks + 1);
+        console.log(numTricks);
+        if (numTricks == 11) {
+            setAllDone(true);
+        }
     };
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <List  >
+                    <List sx={{}} >
                         <div>
                             {tricksToPractice.map(trick => (
                                 <MUITrickItem
@@ -107,20 +96,55 @@ export default function MUITricks() {
                     </List>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <List sx={{ opacity:0.3}}>                             
+                    <List sx={{ opacity: 0.3 }}>
                         <div  >
                             {practicedTricks.map(trick => (
-                                <MUITrickItem 
+                                <MUITrickItem
                                     id={trick.id}
                                     name={trick.name}
                                     description={trick.description}
                                     imageAddress={trick.imageAddress}
-                                 />
+                                />
                             ))}
 
                         </div>
                     </List>
                 </Grid>
+                <Fade in={!allDone} {...(allDone ? { timeout: 5000 } : {})}>
+                <Box 
+                zIndex={allDone? 1:-1} 
+                sx={{width:"100%",height:"500px", display: 'flex', position: "fixed",flexDirection:"column", justifyContent:"center", alignItems:"center" }}
+                
+                >
+                    <Box sx={{display:'flex',flexDirection:"row"}}>
+                    <Grow in={allDone}>{icon}</Grow>
+                    {/* Conditionally applies the timeout prop to change the entry speed. */}
+                    <Grow
+                        in={allDone}
+                        style={{ transformOrigin: '0 0 0' }}
+                        {...(allDone ? { timeout: 1000 } : {})}
+                    >
+                        {icon}
+                    </Grow>
+                    <Grow
+                        in={allDone}
+                        style={{ transformOrigin: '0 0 0' }}
+                        {...(allDone ? { timeout: 2000 } : {})}
+                    >
+                        {icon}
+                        
+                    </Grow>
+                    </Box>
+                    <Box>
+                    <Grow in={allDone}  {...(allDone ? { timeout: 2000 } : {})}>
+                    <Typography variant="h5">
+                            Congratulations Miles!
+                        </Typography>
+                    </Grow>
+                    </Box>
+                    
+                </Box>
+                </Fade>
             </Grid>
         </Box>
 
