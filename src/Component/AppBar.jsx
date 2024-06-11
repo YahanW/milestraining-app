@@ -23,7 +23,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useNavigate } from 'react-router-dom';
-
+import PetsIcon from '@mui/icons-material/Pets';
+import HomeIcon from '@mui/icons-material/Home';
 
 
 function MUIAppBar() {
@@ -67,22 +68,26 @@ function MUIAppBar() {
     const DrawerList = (
         <Box sx={{ width: 200 }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
-                
-                    <ListItem key={'MUITricks'} disablePadding onClick={handleClickMUITricks}>
-                        <ListItemButton >
-                            <ListItemIcon />
 
-                            <ListItemText primary={"MUITricks"}  />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={"Home"} disablePadding onClick={handleClickHome}>
-                        <ListItemButton >
-                            <ListItemIcon />
+                <ListItem key={'MUITricks'} disablePadding onClick={handleClickMUITricks}>
+                    <ListItemButton >
+                        <ListItemIcon>
+                            <PetsIcon />
+                        </ListItemIcon>
 
-                            <ListItemText primary={"Home"}  />
-                        </ListItemButton>
-                    </ListItem>
-           
+                        <ListItemText primary={"MUITricks"} />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem key={"Home"} disablePadding onClick={handleClickHome}>
+                    <ListItemButton >
+                        <ListItemIcon>
+                            <HomeIcon />
+                        </ListItemIcon>
+
+                        <ListItemText primary={"Home"} />
+                    </ListItemButton>
+                </ListItem>
+
             </List>
             <Divider />
         </Box>
