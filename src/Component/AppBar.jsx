@@ -13,6 +13,16 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker'
 import dayjs from 'dayjs';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -20,10 +30,28 @@ function MUIAppBar() {
 
     const [date, setDate] = useState(new Date());
     const [open, setOpen] = useState(false);
+    const [openDrawer, setOpenDrawer] = useState(false);
     const handleOpen = () => {
         if (!open) { setOpen(true); }
     };
     const handleClose = () => setOpen(false);
+    const toggleDrawer = (newOpen) => () => {
+        setOpenDrawer(newOpen);
+    };
+
+    const navigate = useNavigate();
+
+    const handleClickHome = () => {
+
+        navigate('/');
+
+    };
+    const handleClickMUITricks = () => {
+
+        navigate('/MUITricks');
+
+    };
+
 
     const style = {
         position: 'absolute',
@@ -35,7 +63,30 @@ function MUIAppBar() {
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
-      };
+    };
+    const DrawerList = (
+        <Box sx={{ width: 200 }} role="presentation" onClick={toggleDrawer(false)}>
+            <List>
+                
+                    <ListItem key={'MUITricks'} disablePadding onClick={handleClickMUITricks}>
+                        <ListItemButton >
+                            <ListItemIcon />
+
+                            <ListItemText primary={"MUITricks"}  />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem key={"Home"} disablePadding onClick={handleClickHome}>
+                        <ListItemButton >
+                            <ListItemIcon />
+
+                            <ListItemText primary={"Home"}  />
+                        </ListItemButton>
+                    </ListItem>
+           
+            </List>
+            <Divider />
+        </Box>
+    );
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -47,9 +98,14 @@ function MUIAppBar() {
                         color="inherit"
                         aria-label="menu"
                         sx={{ mr: 2 }}
+                        onClick={toggleDrawer(true)}
                     >
                         <MenuIcon />
+
                     </IconButton>
+                    <Drawer open={openDrawer} onClose={toggleDrawer(false)}>
+                        {DrawerList}
+                    </Drawer>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Miles Daily Training Plan
                     </Typography>
@@ -70,12 +126,12 @@ function MUIAppBar() {
                         >
                             <Box sx={style}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <StaticDatePicker onAccept={handleClose}/>
+                                    <StaticDatePicker onAccept={handleClose} />
                                 </LocalizationProvider>
 
                             </Box>
                         </Modal>
-                        
+
                     </IconButton>
                 </Toolbar>
             </AppBar>

@@ -1,24 +1,36 @@
 import React, {useState} from 'react';
-import TrickList from './Component/Tricks';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MUITricks from './Component/MUITricks';
 import MUIAppBar from './Component/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import Tricks from './Component/Tricks';
+
+
 
 function App() {
 
   return (
+    <Router>
     <div className="App">
+      <header>
         <MUIAppBar />
-      {/* <TrickList /> */}
-      <MUITricks />
+      </header>
+     
+        <Routes>
+          <Route path='/MUITricks' element={<MUITricks />} />
+          <Route path='/tricks' element={<Tricks />} />
+          <Route path='/' element={<Home />} />
+        </Routes>
+        
     </div>
+    </Router>
   );
 }
+
+const Home = () => (
+  <div>
+    <h2>Welcome to Dog Tricks</h2>
+    <p>Explore the tricks that your dog can learn and has already learned.</p>
+  </div>
+);
 
 export default App;
