@@ -23,7 +23,7 @@ const MUITrickItem = ({ id, name, description, imageAddress, onPracticeTrick}) =
 
     return (
         //<Slide direction="right" in={checked} mountOnEnter unmountOnExits >
-        <Card raised='false' sx={{ opacity: !checked ? 0.3 : 1, display: 'flex', justifyContent: 'space-between', marginTop: '2%' }} >
+        <Card raised={false} sx={{ opacity: !checked ? 0.3 : 1, display: 'flex', justifyContent: 'space-between', marginTop: '2%' }} >
 
             <CardMedia
                 component="img"

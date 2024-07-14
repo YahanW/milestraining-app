@@ -25,6 +25,7 @@ import MUITrickItem from './MUITrickItem';
 import Paper from '@mui/material/Paper';
 import Grow from '@mui/material/Grow';
 import Fade from '@mui/material/Fade';
+import Back from '../Assets/Back.png'
 
 
 
@@ -60,19 +61,22 @@ export default function MUITricks() {
         { id: 10, name: 'Middle', description: "Miles sits between trainer's legs", imageAddress: "https://thumb.ac-illust.com/ad/adcf0a0e944a3b80c2d09580f9c9c700_t.jpeg" },
         { id: 11, name: '靠', description: "Miles sits next to trainer's left foot", imageAddress: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuN5LFR2_iRtZYMSk3tg-3FduxDbprpkcsZw&s" },
         { id: 12, name: 'Roll', description: "", imageAddress: "https://cdn0.iconfinder.com/data/icons/dog-17/201/dog-015-512.png" },
+        { id: 13, name: 'Up', description: "Stand", imageAddress: "https://www.svgheart.com/wp-content/uploads/2021/11/SvgHeart.Com-148.png" },
+        { id: 14, name: 'Back', description: "", imageAddress: Back },
+        { id: 15, name: 'Go!', description: "Miles go to a traffic cone and return", imageAddress: "https://i.etsystatic.com/36867827/r/il/6cc6be/4190460285/il_fullxfull.4190460285_qr35.jpg" },
     ]);
     const [practicedTricks, setPracticedTricks] = useState([]);
     const element = <MUITrickItem />;
     const trickItems = generate(element, tricksToPractice);
     const [allDone, setAllDone] = React.useState(false);
 
-    const [numTricks, setNumTricks] = useState(0);
+    const [numTricks, setNumTricks] = useState(1);
     const handlePracticeTrick = (trick) => {
         setTricksToPractice(tricksToPractice.filter(t => t.id !== trick.id));
         setPracticedTricks([...practicedTricks, trick]);
         setNumTricks(numTricks + 1);
         console.log(numTricks);
-        if (numTricks == 11) {
+        if (numTricks == 15) {
             setAllDone(true);
         }
     };
@@ -81,7 +85,7 @@ export default function MUITricks() {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <List sx={{}} >
+                    <List >
                         <div>
                             {tricksToPractice.map(trick => (
                                 <MUITrickItem
