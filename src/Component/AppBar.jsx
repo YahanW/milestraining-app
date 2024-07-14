@@ -68,16 +68,6 @@ function MUIAppBar() {
     const DrawerList = (
         <Box sx={{ width: 200 }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
-
-                <ListItem key={'MUITricks'} disablePadding onClick={handleClickMUITricks}>
-                    <ListItemButton >
-                        <ListItemIcon>
-                            <PetsIcon />
-                        </ListItemIcon>
-
-                        <ListItemText primary={"MUITricks"} />
-                    </ListItemButton>
-                </ListItem>
                 <ListItem key={"Home"} disablePadding onClick={handleClickHome}>
                     <ListItemButton >
                         <ListItemIcon>
@@ -85,6 +75,15 @@ function MUIAppBar() {
                         </ListItemIcon>
 
                         <ListItemText primary={"Home"} />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem key={'MUITricks'} disablePadding onClick={handleClickMUITricks}>
+                    <ListItemButton >
+                        <ListItemIcon>
+                            <PetsIcon />
+                        </ListItemIcon>
+
+                        <ListItemText primary={"MUITricks"} />
                     </ListItemButton>
                 </ListItem>
 
