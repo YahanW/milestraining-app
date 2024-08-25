@@ -25,6 +25,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import { useNavigate } from 'react-router-dom';
 import PetsIcon from '@mui/icons-material/Pets';
 import HomeIcon from '@mui/icons-material/Home';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
 
 
 function MUIAppBar() {
@@ -50,6 +51,11 @@ function MUIAppBar() {
     const handleClickMUITricks = () => {
 
         navigate('/MUITricks');
+
+    };
+    const handleClickLunch = () => {
+
+        navigate('/WhatsForLunch');
 
     };
 
@@ -86,7 +92,15 @@ function MUIAppBar() {
                         <ListItemText primary={"MUITricks"} />
                     </ListItemButton>
                 </ListItem>
+                <ListItem key={'WhatsForLunch'} disablePadding onClick={handleClickLunch}>
+                    <ListItemButton >
+                        <ListItemIcon>
+                            <RestaurantIcon />
+                        </ListItemIcon>
 
+                        <ListItemText primary={"WhatsForLunch"} />
+                    </ListItemButton>
+                </ListItem>
             </List>
             <Divider />
         </Box>
