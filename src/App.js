@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MUITricks from './Component/MUITricks';
 import MUIAppBar from './Component/AppBar';
 import Tricks from './Component/Tricks';
+import LuckyWheel from './Component/WhatsForLunch';
 
 
 
@@ -16,6 +17,7 @@ function App() {
       </header>
      
         <Routes>
+          <Route path='/WhatsForLunch' element={<LuckyWheel />} />
           <Route path='/MUITricks' element={<MUITricks />} />
           <Route path='/tricks' element={<Tricks />} />
           <Route path='/' element={<Home />} />
