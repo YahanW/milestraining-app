@@ -26,6 +26,7 @@ import { useNavigate } from 'react-router-dom';
 import PetsIcon from '@mui/icons-material/Pets';
 import HomeIcon from '@mui/icons-material/Home';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
+import GridOnIcon from '@mui/icons-material/GridOn';
 
 
 function MUIAppBar() {
@@ -56,6 +57,11 @@ function MUIAppBar() {
     const handleClickLunch = () => {
 
         navigate('/WhatsForLunch');
+
+    };
+    const handleClickSudoku = () => {
+
+        navigate('/SudokuBoard');
 
     };
 
@@ -99,6 +105,15 @@ function MUIAppBar() {
                         </ListItemIcon>
 
                         <ListItemText primary={"WhatsForLunch"} />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem key={'SudokuBoard'} disablePadding onClick={handleClickSudoku}>
+                    <ListItemButton >
+                        <ListItemIcon>
+                            <GridOnIcon />
+                        </ListItemIcon>
+
+                        <ListItemText primary={"Sudoku"} />
                     </ListItemButton>
                 </ListItem>
             </List>

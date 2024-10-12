@@ -5,14 +5,14 @@ import { Button, Box, Typography, Paper } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const sectors = [
-  { color: '#f44336', label: '锅贴' },
+  { color: '#f44336', label: '馅食' },
   { color: '#4caf50', label: '麻辣烫' },
-  { color: '#2196f3', label: '兰州' },
+  { color: '#2196f3', label: '山下' },
   { color: '#ffeb3b', label: '铁板' },
-  { color: '#00bcd4', label: '小诗人' },
+  { color: '#00bcd4', label: 'SUBWAY' },
   { color: '#e91e63', label: '西安' },
-  { color: '#2196f3', label: 'Bento' },
-  { color: '#ffeb3b', label: '三味真火' },
+  { color: '#2196f3', label: 'Wokin' },
+  { color: '#ffeb3b', label: 'Bravo' },
 ];
 
 const LuckyWheel = () => {

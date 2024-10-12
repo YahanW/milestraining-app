@@ -4,6 +4,7 @@ import MUITricks from './Component/MUITricks';
 import MUIAppBar from './Component/AppBar';
 import Tricks from './Component/Tricks';
 import LuckyWheel from './Component/WhatsForLunch';
+import SudokuBoard from './Component/SudokuBoard';
 
 
 
@@ -17,6 +18,8 @@ function App() {
       </header>
      
         <Routes>
+
+          <Route path='/SudokuBoard' element={<SudokuBoard />} />
           <Route path='/WhatsForLunch' element={<LuckyWheel />} />
           <Route path='/MUITricks' element={<MUITricks />} />
           <Route path='/tricks' element={<Tricks />} />
